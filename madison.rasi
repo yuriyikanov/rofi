@@ -1,0 +1,124 @@
+/*             _____ 
+   _________  / __(_)
+  / ___/ __ \/ /_/ / 
+ / /  / /_/ / __/ /  
+/_/   \____/_/ /_/   
+*/
+
+
+configuration {
+	show-icons: true;
+	icon-theme: "Papirus";
+}
+
+* {
+	BACKGROUND:  #08080A;
+	BASE01:      #586699; 
+	BASE02:      #C5C2BE; 
+	TEXT:        #FFFFFF;
+	MISC01:      #FF5370;
+	MISC02:      #C3E88D;
+	TRANSPARENT: rgba(0,0,0,0);
+
+	spacing: 0;
+	background-color: transparent;
+
+	font: "Roboto Mono 13";
+}
+
+window {
+	transparency: "real";
+	fullscreen: true;
+	background-color: #08080Acc; /*BACKGROUND #08080A + CC (80% opacity)*/
+}
+
+mainbox {
+	children: [inputbar, message, mode-switcher, listview];
+	spacing: 30px;
+	/*margin: 20%;*/
+	padding: 30px 0;
+	border: 0px;
+	border-color: @BASE01;
+}
+
+inputbar {
+	padding: 0 30px;
+	children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+	text-color: @TEXT;
+}
+
+textbox-prompt-colon {
+	expand: false;
+	str: " → ";
+	margin: 0;
+	text-color: @TEXT;
+}
+
+entry {
+	text-color: @TEXT;
+}
+
+case-indicator {
+	text-color: @TEXT;
+}
+
+mode-switcher, message {
+	border: 1px 0;
+	border-color: @BASE01;
+}
+
+button, textbox {
+	background-color: @BASE02;
+	text-color: @TEXT;
+	padding: 5px;
+}
+
+button selected {
+	background-color: @BASE01;
+}
+
+listview {
+	scrollbar: true;
+	margin: 0 10px 0 30px;
+}
+
+scrollbar {
+	background-color: @BASE02;
+	handle-color: @BASE01;
+	handle-width: 10px;
+	border: 0 0px;
+	border-color: @BASE01;
+	margin: 0 0 0 20px;
+}
+
+element {
+	padding: 10px;
+	highlight: bold underline;
+}
+
+element normal {
+	background-color: @TRANSPARENT;
+}
+
+element selected {
+	background-color: @BASE01;
+}
+
+element alternate {
+	/*background-color: @BASE02;*/
+}
+
+element normal normal, element selected normal, element alternate normal {
+	text-color: @TEXT;
+}
+
+element normal urgent, element selected urgent, element alternate urgent {
+	text-color: @MISC01;
+}
+
+element normal active, element selected active, element alternate active {
+	text-color: @MISC02;
+}
